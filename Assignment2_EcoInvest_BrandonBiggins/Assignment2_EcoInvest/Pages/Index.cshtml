@@ -1,0 +1,41 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<html lang="en">
+<body>
+    <header>
+        <h1>EcoInvest</h1>
+        <p>Invest Towards a Better Tomorrow!</p>
+    </header>
+
+    <section>
+        <h2>Invest with Purpose</h2>
+        <p>Join EcoInvest and make a positive impact on the planet through sustainable investing. We provide real-time data on companies that align with your environmental values, simplifying the investment process for a greener future.</p>
+        <p>Sign up today and be part of the movement towards a sustainable and profitable future!</p>
+        <button type="button" class="button-custom" onclick="location.href='Identity/Account/Register';">Sign Up Here</button>
+        <p>Have an account already?</p>
+        <button type="button" class="btn btn-outline-success" onclick="location.href='Identity/Account/Login';">Login Here</button>
+    </section>
+
+    <section>
+        <h2>Need More Information?</h2>
+        <p>Here is our page of companies we are currently tracking the climate impacts and their financial performance.</p>
+        <button type="button" class="btn btn-outline-info" onclick="location.href='/Information';">Company Information</button>
+
+        <button type="button" class="btn btn-outline-warning" id="subscribeButton">Join Our Newsletter</button>
+        <script>
+            document.getElementById('subscribeButton').addEventListener('click', function () {
+                var email = prompt("Please enter your email to join our newsletter:");
+                if (email) { 
+                    alert("Thank you for subscribing with " + email + "!");
+                } else {
+                    alert("No email entered. Hopefully you will join soon!.");
+                }
+            });
+        </script>
+
+    </section>
+</body>
+</html>
