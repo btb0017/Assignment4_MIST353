@@ -1,21 +1,8 @@
-USE EcoInvest_DB;
-GO
-/* Stored Procedure #1: Get all details for a company by companyID. Used to generate data for a company’s detailed information page.*/
-CREATE OR ALTER PROCEDURE spCompanyDetails
-	@CompanyID int
-	AS
-BEGIN
-		SELECT * FROM Company WHERE CompanyID = @CompanyID;
-END;
-GO
-/*
-EXEC spCompanyDetails 
-    @CompanyID = 1, 
-GO
-*/
-
 /* Stored Procedure #2: Add a company. Used to add company details to track information.*/
 USE EcoInvest_DB;
+
+GO
+
 CREATE OR ALTER PROCEDURE spCompanyAdd
 	@CompanyID int,
 	@CompanyName nvarchar(50),

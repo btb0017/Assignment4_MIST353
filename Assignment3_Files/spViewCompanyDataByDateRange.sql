@@ -22,27 +22,9 @@ BEGIN
     AND d.DateValue BETWEEN @StartDate AND @EndDate;
 END;
 GO
-/*
+
 EXEC spViewCompanyDataByDateRange 
     @CompanyID = 1, 
     @StartDate = '2023-01-01', 
     @EndDate = '2023-01-31';
 GO
-*/
-USE EcoInvest_DB;
-GO
-
-CREATE OR ALTER PROCEDURE spGetCompanyClimateRating
-    @CompanyID INT
-AS
-BEGIN
-    SELECT CompanyID, CompanyName, CompanyClimateRating
-    FROM Company
-    WHERE CompanyID = @CompanyID;
-END;
-GO
-
-/*
-EXEC spGetCompanyClimateRating @CompanyID = 2;
-GO
-*/
