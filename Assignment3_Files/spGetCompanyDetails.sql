@@ -8,8 +8,7 @@ BEGIN
 		SELECT * FROM Company WHERE CompanyID = @CompanyID;
 END;
 GO
-/*
+
 EXEC spCompanyDetails 
-    @CompanyID = 1, 
+    @CompanyID = 1; 
 GO
-*/

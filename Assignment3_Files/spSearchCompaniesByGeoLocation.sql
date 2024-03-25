@@ -9,7 +9,7 @@ AS
 Begin
 	SELECT CompanyName
 	CompanyWebsite, 
-	CompanyClimateRating
+	CompanyClimateRating,
 	CompanyStreet,
 	CompanyCity,
 	CompanyState,
@@ -22,5 +22,8 @@ Begin
 END;
 GO
 
-EXEC spSearchCompaniesByGeoLocation '25.7617', '-80.1918'
+EXEC spSearchCompaniesByGeoLocation 
+    @CompanyLatitude = '37.3349', 
+    @CompanyLongitude = '-122.0090';
 GO
+
