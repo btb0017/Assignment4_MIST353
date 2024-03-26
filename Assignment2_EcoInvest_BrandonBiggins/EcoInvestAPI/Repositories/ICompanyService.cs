@@ -1,7 +1,9 @@
-﻿namespace EcoInvestAPI.Repositories
+﻿using EcoInvestAPI.Entities;
+
+namespace EcoInvestAPI.Repositories
 {
     public interface ICompanyService
     {
-        public Task<List<CompanyService>> GetCompanyDetails(int companyId);
+        Task<List<Company>> GetCompanyDetails(int companyId);
     }
 }

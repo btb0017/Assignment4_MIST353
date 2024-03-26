@@ -16,11 +16,16 @@ namespace EcoInvestAPI.Repositories
         {
             _dbContextClass = dbContextClass;
         }
-        public async Task<List<CompanyService>> GetCompanyDetails(int companyId)
+
+        public async Task<List<Company>> GetCompanyDetails(int companyId)
         {
+            // Ensure the SqlParameter is correctly initialized
             var param = new SqlParameter("@CompanyID", companyId);
-            var companyDetails = await Task.Run(() => 
-                    _dbContextClass.Company.FromSqlRaw("exec spGetCompanyDetails @CompanyID", param).ToListAsync());
+
+            // Directly await the ToListAsync call without using Task.Run for better efficiency
+            var companyDetails = await _dbContextClass.Company
+                .FromSqlRaw("EXEC spCompanyDetails @CompanyID", param)
+                .ToListAsync();
 
             return companyDetails;
         }
