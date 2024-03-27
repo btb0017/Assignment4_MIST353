@@ -11,7 +11,6 @@ BEGIN
 END;
 GO
 
-
 EXEC spGetCompanyClimateRating @CompanyID = 2;
 GO
 

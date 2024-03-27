@@ -379,7 +379,7 @@ INSERT INTO Date (DateValue) VALUES
 ('2023-03-24');
 GO
 */
-
+/*
 INSERT INTO ClimateData (CompanyID, DateID, Temperature, Humidity, CO2Levels) VALUES
 (1, 1, 25.0, 50, 415),
 (1, 2, 26.5, 52, 418),
@@ -388,7 +388,7 @@ INSERT INTO ClimateData (CompanyID, DateID, Temperature, Humidity, CO2Levels) VA
 (1, 5, 23.5, 49, 405);
 
 GO
-
+*/
 
 INSERT INTO StockData (CompanyID, DateID, OpeningPrice, ClosingPrice, High, Low, Volume) VALUES
 
