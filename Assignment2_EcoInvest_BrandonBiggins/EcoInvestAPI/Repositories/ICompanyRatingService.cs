@@ -5,6 +5,6 @@ namespace EcoInvestAPI.Repositories
 {
     public interface ICompanyRatingService
     {
-        Task<List<Company>> GetCompanyClimateRating(int companyId);
+        Task<List<CompanyRatings>> GetCompanyClimateRating(int companyId);
     }
 }

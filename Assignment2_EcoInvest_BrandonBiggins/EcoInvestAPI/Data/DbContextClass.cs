@@ -19,6 +19,8 @@ namespace EcoInvestAPI.Data
 
         public DbSet<CompanyStockData> CompanyStockData { get; set; }
 
+        public DbSet<CompanyRatings> CompanyRatingData { get; set; }
+
       /*  protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

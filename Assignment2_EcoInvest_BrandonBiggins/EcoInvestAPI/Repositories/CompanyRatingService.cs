@@ -12,16 +12,16 @@ namespace EcoInvestAPI.Repositories
     {
         private readonly DbContextClass _dbContextClass;
         public CompanyRatingService(DbContextClass dbContextClass) => _dbContextClass = dbContextClass;
-        public async Task<List<Company>> GetCompanyClimateRating(int companyId)
+        public async Task<List<CompanyRatings>> GetCompanyClimateRating(int companyId)
         {
             var param = new SqlParameter("@CompanyID", companyId);
 
-            var companyDetails = await _dbContextClass.Company
+            var companyDetails = await _dbContextClass.CompanyRatingData
                 .FromSqlRaw("EXEC spGetCompanyClimateRating @CompanyID", param)
                 .AsNoTracking()
                 .ToListAsync();
 
-            return companyDetails;
+            return CompanyRatingData;
         }
     }
 }
