@@ -1,10 +1,9 @@
 ﻿using EcoInvestAPI.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using EcoInvestAPI.Entities;
-using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-
+// Brandon Biggins
 namespace EcoInvestAPI.Controllers
 {
     [Route("api/[controller]")]

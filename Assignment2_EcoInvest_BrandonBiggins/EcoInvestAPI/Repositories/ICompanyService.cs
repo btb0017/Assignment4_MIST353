@@ -1,5 +1,5 @@
 ﻿using EcoInvestAPI.Entities;
-
+//Brandon Biggins
 namespace EcoInvestAPI.Repositories
 {
     public interface ICompanyService

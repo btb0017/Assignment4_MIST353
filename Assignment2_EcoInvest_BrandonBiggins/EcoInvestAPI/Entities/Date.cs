@@ -5,6 +5,7 @@ namespace EcoInvestAPI.Entities
 {
     public class Date
     {
+        [Key]
         public DateTime DateValue { get; set; }
     }
 }
