@@ -4,7 +4,7 @@ using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-//Brandon Biggins
+
 
 namespace EcoInvestAPI.Repositories
 {
