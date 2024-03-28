@@ -19,10 +19,10 @@ namespace EcoInvestAPI.Repositories
 
         public async Task<List<Company>> GetCompanyDetails(int companyId)
         {
-            // Ensure the SqlParameter is correctly initialized
+            
             var param = new SqlParameter("@CompanyID", companyId);
 
-            // Directly await the ToListAsync call without using Task.Run for better efficiency
+            
             var companyDetails = await _dbContextClass.Company
                 .FromSqlRaw("EXEC spCompanyDetails @CompanyID", param)
                 .ToListAsync();
