@@ -18,16 +18,22 @@ namespace EcoInvestAPI.Repositories
             this._dbContextClass = dbContextClass;
         }
 
-        public async Task<List<Company>> ViewCompanyDataByDateRange(int companyId, string startDate, string endDate)
+        public async Task<List<CompanyClimateData>> ViewCompanyDataByDateRange(int companyId, string startDate, string endDate)
         {
             var param = new SqlParameter("@CompanyID", companyId);
             var date1 = new SqlParameter("@StartDate", startDate);
             var date2 = new SqlParameter("@EndDate", endDate);
 
-            var viewCompanyDataByDateRange = await _dbContextClass.Company
+            var viewCompanyClimateData = await _dbContextClass.CompanyClimateData
                 .FromSqlRaw("EXEC spViewCompanyDataByDateRange @CompanyID, @StartDate, @EndDate", param, date1, date2)
                 .ToListAsync();
-            return viewCompanyDataByDateRange;
+
+            //var viewCompanyStockData = await _dbContextClass.CompanyStockData
+              // .FromSqlRaw("EXEC spViewCompanyDataByDateRange @CompanyID, @StartDate, @EndDate", param, date1, date2)
+               //.ToListAsync();
+
+            return viewCompanyClimateData;
+
         }
     }
 }
