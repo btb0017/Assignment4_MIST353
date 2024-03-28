@@ -12,10 +12,7 @@ namespace EcoInvestAPI.Repositories
     {
         private readonly DbContextClass _dbContextClass;
 
-        public CompanyService(DbContextClass dbContextClass)
-        {
-            _dbContextClass = dbContextClass;
-        }
+        public CompanyService(DbContextClass dbContextClass) => _dbContextClass = dbContextClass;
 
         public async Task<List<Company>> GetCompanyDetails(int companyId)
         {
