@@ -1,4 +1,5 @@
 using EcoInvestAPI.Data;
+using EcoInvestAPI.Entities;
 using EcoInvestAPI.Repositories;
 using Microsoft.EntityFrameworkCore;
 
