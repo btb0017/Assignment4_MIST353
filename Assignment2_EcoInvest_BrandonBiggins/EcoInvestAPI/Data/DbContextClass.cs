@@ -14,5 +14,17 @@ namespace EcoInvestAPI.Data
         public DbSet<ClimateData> ClimateData { get; set; }
 
         public DbSet<StockData> StockData { get; set; }
+
+        public DbSet<CompanyClimateData> CompanyClimateData { get; set; }
+
+        public DbSet<CompanyStockData> CompanyStockData { get; set; }
+
+      /*  protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<CompanyStockData>().HasNoKey();
+            modelBuilder.Entity<CompanyStockData>().HasNoKey();
+        }*/
     }
 }
