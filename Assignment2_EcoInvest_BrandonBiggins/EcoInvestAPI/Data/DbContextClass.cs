@@ -29,6 +29,6 @@ namespace EcoInvestAPI.Data
 
             modelBuilder.Entity<CompanyStockData>().HasNoKey();
             modelBuilder.Entity<CompanyStockData>().HasNoKey();
-        }*/
+        }
     }
 }
