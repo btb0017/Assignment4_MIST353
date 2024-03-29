@@ -9,8 +9,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddScoped<ISearchCompaniesByGeo, SearchCompaniesByGeoContoller>();
 builder.Services.AddScoped<IAddClimateAndStockData, AddClimateAndStockDataController>();
 builder.Services.AddScoped<ICompanyService, CompanyService>();
+builder.Services.AddScoped<ICompanyRatingService, CompanyRatingService>();
 builder.Services.AddScoped<IViewCompanyDataByDateRangeService, ViewCompanyDataByDateRangeService>();
-builder.Services.AddScoped<ICompanyService, CompanyService>();
 builder.Services.AddDbContext<DbContextClass>(options => 
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddControllers();
