@@ -63,6 +63,3 @@ Currently, we still only have the mock data from ChatGPT for the climate data fo
 ## Stock API
 (Brandon Biggins)
 I have pulled stock data for 5 companies and stored the sql files in the NewDataFiles. If you do not want to run these that is fine. I have a years worth of data pulled for each company. Otherwise, you can run these if you want to add the data to the DB.
-##Stored Procedure
-(Braylon Higginbotham)
-I updated AddClimateAndStockData stored procedure to make it only use Climate instead of Stock data due to problems with the api working correctly.
