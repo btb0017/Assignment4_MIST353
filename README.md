@@ -63,3 +63,75 @@ Currently, we still only have the mock data from ChatGPT for the climate data fo
 ## Stock API
 (Brandon Biggins)
 I have pulled stock data for 5 companies and stored the sql files in the NewDataFiles. If you do not want to run these that is fine. I have a years worth of data pulled for each company. Otherwise, you can run these if you want to add the data to the DB.
+
+# ChatGPT Prompts
+I am converting sqlserver stored procedures to apis in ASP.NET Core 8. I need to convert this table to a class. Give me the code:  
+
+CREATE TABLE Company (  
+    CompanyID INT PRIMARY KEY IDENTITY(1,1),  
+    CompanyName NVARCHAR(50) NOT NULL,  
+    CompanyStreet NVARCHAR(50) NOT NULL,  
+    CompanyCity NVARCHAR(MAX) NOT NULL,  
+    CompanyState NVARCHAR(MAX) NOT NULL,  
+    CompanyCountry NVARCHAR(50) NOT NULL,  
+    CompanyZip NVARCHAR(10) NOT NULL,  
+    CompanyEmail NVARCHAR(MAX) NOT NULL,  
+    CompanyLatitude NVARCHAR(MAX) NOT NULL,  
+    CompanyLongitude NVARCHAR(MAX) NOT NULL,  
+    CompanyWebsite NVARCHAR(MAX) NOT NULL,  
+    CompanyClimateRating INT NOT NULL  
+);  
+GO    
+now do this one: CREATE TABLE StockData (  
+    StockDataID INT PRIMARY KEY IDENTITY(1,1),  
+    CompanyID INT NOT NULL,  
+    DateValue DATE NOT NULL,  
+    OpeningPrice FLOAT NOT NULL,  
+    ClosingPrice FLOAT NOT NULL,  
+    High FLOAT NOT NULL,  
+    Low FLOAT NOT NULL,  
+    Volume INT NOT NULL,  
+    FOREIGN KEY (CompanyID) REFERENCES Company(CompanyID),  
+    FOREIGN KEY (DateValue) REFERENCES Date(DateValue)  
+);  
+GO    
+
+now this one:  
+
+CREATE TABLE ClimateData (  
+    ClimateDataID INT PRIMARY KEY IDENTITY(1,1),  
+    CompanyID INT NOT NULL,  
+    DateValue DATE NOT NULL,  
+    HighTemperature FLOAT NOT NULL,  
+    LowTemperature FLOAT NOT NULL,  
+    AvgTemperature FLOAT NOT NULL,  
+    Precipitation FLOAT NOT NULL,    
+
+What is wrong with this code:  
+
+using EcoInvestAPI.Repositories;  
+using Microsoft.AspNetCore.Mvc;  
+
+namespace EcoInvestAPI.Controllers  
+{  
+    [Route("api/[controller]")]  
+    [ApiController]  
+    public class CompanyController : Controller  
+    {  
+        private readonly ICompanyService companyService;  
+        public CompanyController(ICompanyService companyService)  
+        {  
+            this.companyService = companyService;  
+        }  
+        [HttpGet("{companyId}")]  
+        public async Task<List<CompanyService>> GetCompanyDetails(int companyId)  
+        {  
+            var companyDetails = await companyService.GetCompanyDetails(companyId);  
+            /*if (companyDetails == null)  
+            {  
+                return NotFound();  
+            }*/  
+            return companyDetails;  
+        }  
+    }  
+}    
