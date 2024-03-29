@@ -16,11 +16,11 @@ namespace EcoInvestAPI.Repositories
         {
             var param = new SqlParameter("@CompanyID", companyId);
 
-            var companyDetails = await _dbContextClass.CompanyRatingData
+            var companyRatingData = await _dbContextClass.CompanyRatingData
                 .FromSqlRaw("EXEC spGetCompanyClimateRating @CompanyID", param)
                 .ToListAsync();
 
-            return companyDetails;
+            return companyRatingData;
         }
     }
 }

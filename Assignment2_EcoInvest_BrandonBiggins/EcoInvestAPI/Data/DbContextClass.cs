@@ -15,13 +15,15 @@ namespace EcoInvestAPI.Data
 
         public DbSet<StockData> StockData { get; set; }
 
-        public DbSet<CompanyClimateData> CompanyClimateData { get; set; }
+       // public DbSet<CompanyClimateData> CompanyClimateData { get; set; }
 
-        public DbSet<CompanyStockData> CompanyStockData { get; set; }
+       // public DbSet<CompanyStockData> CompanyStockData { get; set; }
 
         public DbSet<CompanyRatings> CompanyRatingData { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        public DbSet<CompanyClimateandStock> companyClimateandStock { get; set; }
+
+        /*protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 

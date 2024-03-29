@@ -17,13 +17,13 @@ namespace EcoInvestAPI.Controllers
         }
 
         [HttpGet("{companyId}/{startDate}/{endDate}")]
-        public async Task<ActionResult<List<CompanyClimateData>>> ViewCompanyDataByDateRange(int companyId, string startDate, string endDate)
+        public async Task<ActionResult<List<CompanyClimateandStock>>> ViewCompanyDataByDateRange(int companyId, string startDate, string endDate)
         {
             var companyIDandDates = await viewCompanyDataByDateRangeService.ViewCompanyDataByDateRange(companyId, startDate, endDate);
             
             if (companyIDandDates == null || companyIDandDates.Count == 0) // Adjusted check
             {
-                //return NotFound();
+                return NotFound();
             }
             return Ok(companyIDandDates); // Wrap in Ok for a 200 status code
         }
