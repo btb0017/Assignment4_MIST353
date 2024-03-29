@@ -47,9 +47,8 @@ This API will fetch the climate rating for a specified company.
 This API will get a list of companies based off of the entered lat and long.
 
 ### ViewCompanyDataByDateRange (Brandon Biggins)
-
 This API will take in a date range and display the stock and climate data for the selected company for the date range.
-
+Input: CompanyID ex. 1 through 5, StartDate and EndDate (ranges from 2023-03-27 (I think) to 2024-03-27)
 ### AddClimateAndStockData (Braylon Higginbotham)
 
 This API will let an Admin add climate and stock data for a specific company.
@@ -59,7 +58,7 @@ This API will let an Admin add climate and stock data for a specific company.
 We plan to incorporate the NOAA API so that the user can click a button on the Home page and get the current temperature for their location.
 
 We also plan to pull and store data locally so that we can work with the data more easily for putting the data into tables. 
-
+Currently, we still only have the mock data from ChatGPT for the climate data for right now.
 ## Stock API
 
 (Brandon Biggins)
