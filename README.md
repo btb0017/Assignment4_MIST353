@@ -49,6 +49,7 @@ This API will get a list of companies based off of the entered lat and long.
 ### ViewCompanyDataByDateRange (Brandon Biggins)
 This API will take in a date range and display the stock and climate data for the selected company for the date range.
 Input: CompanyID ex. 1 through 5, StartDate and EndDate (ranges from 2023-03-27 (I think) to 2024-03-27)
+Output: Currently none. I get an error with this API and I think it might be because the stored procedure has 2 queries in it and EF can't handle both at the same time since they pull data from different tables.
 ### AddClimateAndStockData (Braylon Higginbotham)
 
 This API will let an Admin add climate and stock data for a specific company.
@@ -60,7 +61,6 @@ We plan to incorporate the NOAA API so that the user can click a button on the H
 We also plan to pull and store data locally so that we can work with the data more easily for putting the data into tables. 
 Currently, we still only have the mock data from ChatGPT for the climate data for right now.
 ## Stock API
-
 (Brandon Biggins)
 I have pulled stock data for 5 companies and stored the sql files in the NewDataFiles. If you do not want to run these that is fine. I have a years worth of data pulled for each company. Otherwise, you can run these if you want to add the data to the DB.
 
