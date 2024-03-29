@@ -21,12 +21,12 @@ namespace EcoInvestAPI.Data
 
         public DbSet<CompanyRatings> CompanyRatingData { get; set; }
 
-      /*  protected override void OnModelCreating(ModelBuilder modelBuilder)
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<CompanyStockData>().HasNoKey();
             modelBuilder.Entity<CompanyStockData>().HasNoKey();
-        }*/
+        }
     }
 }

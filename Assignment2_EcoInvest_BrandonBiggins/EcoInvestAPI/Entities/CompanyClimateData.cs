@@ -5,8 +5,8 @@ namespace EcoInvestAPI.Entities
 {
     public class CompanyClimateData
     {
-        
-        
+        [Key]
+        public string CompanyID { get; set; }
         public string CompanyName { get; set; }
         public DateTime DateValue { get; set; }
         public decimal HighTemperature { get; set; }

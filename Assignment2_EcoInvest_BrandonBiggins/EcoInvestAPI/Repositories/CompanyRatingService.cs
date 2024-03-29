@@ -18,10 +18,9 @@ namespace EcoInvestAPI.Repositories
 
             var companyDetails = await _dbContextClass.CompanyRatingData
                 .FromSqlRaw("EXEC spGetCompanyClimateRating @CompanyID", param)
-                .AsNoTracking()
                 .ToListAsync();
 
-            return CompanyRatingData;
+            return companyDetails;
         }
     }
 }

@@ -17,7 +17,7 @@ namespace EcoInvestAPI.Controllers
             this.companyRatingService = CompanyRatingService;
         }
         [HttpGet("{companyId}")]
-        public async Task<ActionResult<Company>> GetCompanyClimateRating(int companyId) 
+        public async Task<ActionResult<CompanyRatings>> GetCompanyClimateRating(int companyId) 
         {
             var companyDetails = await companyRatingService.GetCompanyClimateRating(companyId);
             if (companyDetails == null) // Check for null content with the companyId
