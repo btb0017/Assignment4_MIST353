@@ -1,0 +1,6 @@
+@EcoInvestAPI_HostAddress = http://localhost:5101
+
+GET {{EcoInvestAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

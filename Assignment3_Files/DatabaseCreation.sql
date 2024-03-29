@@ -5,49 +5,51 @@ USE EcoInvest_DB;
 GO
 
 CREATE TABLE Company (
-    CompanyID INT PRIMARY KEY IDENTITY,
-    CompanyName NVARCHAR(50) not null,
-    CompanyStreet NVARCHAR(50) not null,
-    CompanyCity NVARCHAR(MAX) not null,
-    CompanyState NVARCHAR(MAX) not null,
-    CompanyCountry NVARCHAR(50) not null,
-    CompanyZip NVARCHAR(10) not null,
-    CompanyEmail NVARCHAR(MAX) not null,
-    CompanyLatitude NVARCHAR(MAX) not null,
-    CompanyLongitude NVARCHAR(MAX) not null,
-    CompanyWebsite NVARCHAR(MAX) not null,
-    CompanyClimateRating INT not null
+    CompanyID INT PRIMARY KEY IDENTITY(1,1),
+    CompanyName NVARCHAR(50) NOT NULL,
+    CompanyStreet NVARCHAR(50) NOT NULL,
+    CompanyCity NVARCHAR(MAX) NOT NULL,
+    CompanyState NVARCHAR(MAX) NOT NULL,
+    CompanyCountry NVARCHAR(50) NOT NULL,
+    CompanyZip NVARCHAR(10) NOT NULL,
+    CompanyEmail NVARCHAR(MAX) NOT NULL,
+    CompanyLatitude NVARCHAR(MAX) NOT NULL,
+    CompanyLongitude NVARCHAR(MAX) NOT NULL,
+    CompanyWebsite NVARCHAR(MAX) NOT NULL,
+    CompanyClimateRating INT NOT NULL
 );
 GO
 
 CREATE TABLE Date (
-    DateID INT PRIMARY KEY IDENTITY(1,1),
-    DateValue DATE UNIQUE not null
+    DateValue DATE PRIMARY KEY NOT NULL
 );
 GO
 
+
+-- Adjusted ClimateData table
 CREATE TABLE ClimateData (
     ClimateDataID INT PRIMARY KEY IDENTITY(1,1),
-    CompanyID INT not null,
-    DateID INT not null,
-    Temperature FLOAT not null,
-    Humidity FLOAT not null,
-    CO2Levels FLOAT not null,
+    CompanyID INT NOT NULL,
+    DateValue DATE NOT NULL,
+    HighTemperature FLOAT NOT NULL,
+    LowTemperature FLOAT NOT NULL,
+    AvgTemperature FLOAT NOT NULL,
+    Precipitation FLOAT NOT NULL,
     FOREIGN KEY (CompanyID) REFERENCES Company(CompanyID),
-    FOREIGN KEY (DateID) REFERENCES Date(DateID)
+    FOREIGN KEY (DateValue) REFERENCES Date(DateValue)
 );
 GO
 
 CREATE TABLE StockData (
     StockDataID INT PRIMARY KEY IDENTITY(1,1),
-    CompanyID INT not null,
-    DateID INT not null,
-    OpeningPrice FLOAT not null,
-    ClosingPrice FLOAT not null,
-    High FLOAT not null,
-    Low FLOAT not null,
-    Volume INT not null,
+    CompanyID INT NOT NULL,
+    DateValue DATE NOT NULL,
+    OpeningPrice FLOAT NOT NULL,
+    ClosingPrice FLOAT NOT NULL,
+    High FLOAT NOT NULL,
+    Low FLOAT NOT NULL,
+    Volume INT NOT NULL,
     FOREIGN KEY (CompanyID) REFERENCES Company(CompanyID),
-    FOREIGN KEY (DateID) REFERENCES Date(DateID)
+    FOREIGN KEY (DateValue) REFERENCES Date(DateValue)
 );
 GO
