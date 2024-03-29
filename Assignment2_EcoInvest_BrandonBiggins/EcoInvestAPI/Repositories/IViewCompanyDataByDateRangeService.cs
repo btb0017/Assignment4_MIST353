@@ -4,6 +4,6 @@ namespace EcoInvestAPI.Repositories
 {
     public interface IViewCompanyDataByDateRangeService
     {
-        Task<List<CompanyClimateData>> ViewCompanyDataByDateRange(int companyId, string startDate, string endDate);
+        Task<List<CompanyClimateandStock>> ViewCompanyDataByDateRange(int companyId, string startDate, string endDate);
     }
 }

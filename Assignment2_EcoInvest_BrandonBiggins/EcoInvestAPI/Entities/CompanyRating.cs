@@ -5,6 +5,7 @@ namespace EcoInvestAPI.Entities
 {
     public class CompanyRatings
     {
+        [Key]
         public int CompanyID { get; set; }
 
         public string CompanyName { get; set; }
