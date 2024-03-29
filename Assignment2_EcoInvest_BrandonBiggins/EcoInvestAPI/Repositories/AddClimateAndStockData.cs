@@ -27,7 +27,7 @@ namespace EcoInvestAPI.Repositories
             var Temp = new SqlParameter("@AvgTemperature", AvgTemperature);
 
             var viewAddClimateAndStockData = await _dbContextClass.Company
-                .FromSqlRaw("EXEC AddClimateAndStockData @CompanyID = 1,    @DateValue = \"2023-01-20\",    @AvgTemperature = 79.44,;", comp, Datavalue, Temp)
+                .FromSqlRaw("EXEC AddClimateAndStockData @CompanyID = 1,    @DateValue = \"2023-01-20\",@AvgTemperature = 79.44", comp, Datavalue, Temp)
                 .ToListAsync();
             return viewAddClimateAndStockData;
         }
