@@ -21,7 +21,7 @@ namespace EcoInvestAPI.Data
 
         public DbSet<CompanyRatings> CompanyRatingData { get; set; }
 
-        public DbSet<CompanyClimateandStock> companyClimateandStock { get; set; }
+        public DbSet<CompanyClimateandStock> CompanyClimateandStock { get; set; }
 
         /*protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -29,6 +29,6 @@ namespace EcoInvestAPI.Data
 
             modelBuilder.Entity<CompanyStockData>().HasNoKey();
             modelBuilder.Entity<CompanyStockData>().HasNoKey();
-        }
+        }*/
     }
 }
