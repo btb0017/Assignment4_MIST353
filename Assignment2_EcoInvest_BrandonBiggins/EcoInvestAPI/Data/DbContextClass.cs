@@ -1,4 +1,5 @@
 ﻿using EcoInvestAPI.Entities;
+using EcoInvestAPI.Entities.NewEntities;
 using Microsoft.EntityFrameworkCore;
 
 namespace EcoInvestAPI.Data
@@ -23,12 +24,15 @@ namespace EcoInvestAPI.Data
 
         public DbSet<CompanyClimateandStock> CompanyClimateandStock { get; set; }
 
-        /*protected override void OnModelCreating(ModelBuilder modelBuilder)
+        public DbSet<StockDataByDateRange> StockDataByDateRanges { get; set; }
+
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<CompanyStockData>().HasNoKey();
-            modelBuilder.Entity<CompanyStockData>().HasNoKey();
-        }*/
+            modelBuilder.Entity<StockDataByDateRange>().HasNoKey();
+
+        }
     }
 }

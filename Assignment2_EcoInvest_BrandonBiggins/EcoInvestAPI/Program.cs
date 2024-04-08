@@ -1,6 +1,7 @@
 using EcoInvestAPI.Data;
 using EcoInvestAPI.Entities;
 using EcoInvestAPI.Repositories;
+using EcoInvestAPI.Repositories.NewRepo;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +12,7 @@ builder.Services.AddScoped<IAddClimateAndStockData, AddClimateAndStockDataContro
 builder.Services.AddScoped<ICompanyService, CompanyService>();
 builder.Services.AddScoped<ICompanyRatingService, CompanyRatingService>();
 builder.Services.AddScoped<IViewCompanyDataByDateRangeService, ViewCompanyDataByDateRangeService>();
+builder.Services.AddScoped<IStockDataByDateRangeService, StockDataByDateRangeService>();
 builder.Services.AddDbContext<DbContextClass>(options => 
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddControllers();
