@@ -1,6 +1,7 @@
 ﻿@page
 @model Assignment2_EcoInvest.Pages.AppleInfoModel
 @{
+    var companyId = 1;
 }
 
 <div id="companyHeader" style="text-align:center;">
@@ -11,14 +12,13 @@
 <h2 style="text-align:center;" id="companyName"></h2>
 
 <div id="companyDetails" style="margin: 20px;">
-    <p><strong>Street:</strong> <span id="companyStreet"></span></p>
-    <p><strong>City:</strong> <span id="companyCity"></span></p>
-    <p><strong>State:</strong> <span id="companyState"></span></p>
-    <p><strong>Zip:</strong> <span id="companyZip"></span></p>
+    <p><strong>Address:</strong> <span id="companyAddress"></span></p>
     <p><strong>Email:</strong> <span id="companyEmail"></span></p>
     <p><strong>Website:</strong> <a id="companyWebsite" href=""></a></p>
     <p><strong>Climate Rating:</strong> <span id="companyClimateRating"></span></p>
 </div>
+
+<script type="module">getCompanyDetails(@companyId)</script>
 
 
 <body>
