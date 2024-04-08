@@ -23,4 +23,8 @@
     <Folder Include="wwwroot\Images\Apple\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\EcoInvestAPI\EcoInvestAPI.csproj" />
+  </ItemGroup>
+
 </Project>

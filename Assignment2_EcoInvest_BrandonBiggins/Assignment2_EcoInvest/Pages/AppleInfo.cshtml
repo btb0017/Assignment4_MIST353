@@ -3,6 +3,12 @@
 @{
     var companyId = 1;
 }
+<div id="companyInfo" data-company-id="@companyId" style="display:none;"></div>
+
+
+<script src="~/js/site.js" type="module"></script>
+<script type="module">getCompanyDetails(@companyId)</script>
+
 
 <div id="companyHeader" style="text-align:center;">
     <img id="companyLogo" src="~/Images/Apple/Apple-Logo.png" alt="Company Logo">
@@ -17,14 +23,4 @@
     <p><strong>Website:</strong> <a id="companyWebsite" href=""></a></p>
     <p><strong>Climate Rating:</strong> <span id="companyClimateRating"></span></p>
 </div>
-
-<script type="module">getCompanyDetails(@companyId)</script>
-
-
-<body>
-    <h1>Test</h1>
-    <p><a href="/Information">Go Back</a></p>
-
-
-</body>
-
+<div><p><a href="/Information">Go Back</a></p></div>

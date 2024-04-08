@@ -2,7 +2,28 @@
 @model Assignment2_EcoInvest.Pages.InformationModel
 @{
 }
+<!DOCTYPE html>
 <html>
+<head>
+    <title>EcoInvest Information Page</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('searchInput').addEventListener('keyup', function () {
+                var searchValue = this.value.toLowerCase();
+                var tableRows = document.querySelectorAll('.table-active tr:not(.table-secondary)');
+
+                tableRows.forEach(function (row) {
+                    var cellText = row.querySelector('td:first-child').textContent.toLowerCase();
+                    if (cellText.includes(searchValue)) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</head>
 <body>
     <header>
         <div class="container">
@@ -22,7 +43,8 @@
         </ul>
 
         <h2>Sample Data</h2>
-        <table class="table">
+        <input type="text" id="searchInput" placeholder="Search for companies...">
+        <table class="table-active">
             <tr class="table-secondary">
                 <th>Company</th>
                 <th>Financial Performance</th>
@@ -33,7 +55,7 @@
                 <td>Positive</td>
                 <td>Low</td>
             </tr>
-            <tr class="table-active">
+            <tr>
                 <td>Amazon</td>
                 <td>Stable</td>
                 <td>Moderate</td>
@@ -43,7 +65,7 @@
                 <td>Positive</td>
                 <td>Low</td>
             </tr>
-            <tr class="table-active">
+            <tr>
                 <td>Nvidia</td>
                 <td>Positive</td>
                 <td>Moderate</td>
