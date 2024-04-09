@@ -5,7 +5,7 @@
     var startDate = HttpContext.Request.Query[ "startDate"];
     var endDate = HttpContext.Request.Query["endDate"];
 }
-<div id="companyInfo" data-company-id="@companyId" style="display:none;"></div>
+<div id="companyInfo" data-company-id="@companyId";"></div>
 
 
 <script src="~/js/site.js" type="module"></script>
@@ -36,7 +36,7 @@
     <button type="button" onclick="fetchStockData()">Get Stock Data</button>
 </div>
 
-<table id="stockDataTable" style="width:100%; display:none;">
+<table id="stockDataTable" style="width:100%;">
     <thead>
         <tr>
             <th>Company Name</th>
