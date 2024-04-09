@@ -5,11 +5,10 @@
     var startDate = HttpContext.Request.Query[ "startDate"];
     var endDate = HttpContext.Request.Query["endDate"];
 }
-<div id="companyInfo" data-company-id="@companyId";"></div>
-
 
 <script src="~/js/site.js" type="module"></script>
 <script type="module">getCompanyDetails(@companyId)</script>
+<script type="module">fetchStockData()</script>
 
 
 <div id="companyHeader" class="text-align:center;">
@@ -25,7 +24,7 @@
     <p><strong>Website:</strong> <a id="companyWebsite" href=""></a></p>
     <p><strong>Climate Rating:</strong> <span id="companyClimateRating"></span></p>
 </div>
-
+<div id="companyId"></div>
 <div id="stockDataForm">
     <label for="startDate">Start Date:</label>
     <input type="date" id="startDate" name="startDate">

@@ -9,7 +9,7 @@
 async function getCompanyDetails(companyId) {
     try {
         console.log('Fetching details for companyID: ${companyId}');
-        const response = await fetch(`http://localhost:7233/api/Company/${companyId}`);
+        const response = await fetch(`https://localhost:7233/api/Company/${companyId}`);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -27,14 +27,14 @@ async function getCompanyDetails(companyId) {
         websiteElement.href = data[0].companyWebsite;
         websiteElement.innerHTML = data[0].companyWebsite;
 
-        document.getElementById('companyClimateRating').innerHTML = data[0].climateRating;
+        document.getElementById('companyClimateRating').innerHTML = data[0].companyClimateRating;
     } catch (error) {
         console.error('Fetch error:', error);
     }
 }
 
 async function fetchStockData() {
-    const companyId = document.getElementById('companyInfo').getAttribute('data-company-id');
+    const companyId = document.getElementById('companyId').innerHTML;
     const startDate = document.getElementById('startDate').value;
     const endDate = document.getElementById('endDate').value;
 
@@ -44,7 +44,7 @@ async function fetchStockData() {
     }
 
     try {
-        const response = await fetch(`http://localhost:7233/api/StockData/${companyId}?startDate=${startDate}&endDate=${endDate}`);
+        const response = await fetch(`https://localhost:7233/api/StockData/${companyId}?startDate=${startDate}&endDate=${endDate}`);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
