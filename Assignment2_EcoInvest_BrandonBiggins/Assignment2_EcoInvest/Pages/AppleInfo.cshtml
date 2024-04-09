@@ -1,7 +1,9 @@
 ﻿@page
 @model Assignment2_EcoInvest.Pages.AppleInfoModel
 @{
-    var companyId = 1;
+    var companyId = HttpContext.Request.Query[ "companyId"];
+    var startDate = HttpContext.Request.Query[ "startDate"];
+    var endDate = HttpContext.Request.Query["endDate"];
 }
 <div id="companyInfo" data-company-id="@companyId" style="display:none;"></div>
 
@@ -23,4 +25,33 @@
     <p><strong>Website:</strong> <a id="companyWebsite" href=""></a></p>
     <p><strong>Climate Rating:</strong> <span id="companyClimateRating"></span></p>
 </div>
+
+<div id="stockDataForm">
+    <label for="startDate">Start Date:</label>
+    <input type="date" id="startDate" name="startDate">
+
+    <label for="endDate">End Date:</label>
+    <input type="date" id="endDate" name="endDate">
+
+    <button type="button" onclick="fetchStockData()">Get Stock Data</button>
+</div>
+
+<table id="stockDataTable" style="width:100%; display:none;">
+    <thead>
+        <tr>
+            <th>Company Name</th>
+            <th>Date</th>
+            <th>Opening Price</th>
+            <th>Closing Price</th>
+            <th>High</th>
+            <th>Low</th>
+            <th>Volume</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Stock data will be inserted here -->
+    </tbody>
+</table>
+
+
 <div><p><a href="/Information">Go Back</a></p></div>
