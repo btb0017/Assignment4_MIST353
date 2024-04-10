@@ -5,7 +5,7 @@ VisualStudioVersion = 17.8.34525.116
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Assignment2_EcoInvest", "Assignment2_EcoInvest\Assignment2_EcoInvest.csproj", "{F76D0320-62F6-4039-B914-D622A48A8E72}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EcoInvestAPI", "EcoInvestAPI\EcoInvestAPI.csproj", "{A4545E25-522A-4666-94B4-D40C5D8BF910}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EcoInvestAPI", "EcoInvestAPI\EcoInvestAPI.csproj", "{A4545E25-522A-4666-94B4-D40C5D8BF910}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
