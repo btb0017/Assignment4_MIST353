@@ -1,3 +1,18 @@
+# Galactic Gadgets Inc. Project
+
+Assignment 5 portion of the README will be first, then Assignment 4 is below.
+
+# Assignment5_MIST353
+(Brandon Biggins)  
+I reworked one of my SPs and have it included in in GitHub repo under assignment 3 files. spGetStockDataByDateRange   
+I also created a new api for the stored procedure. I have each of new files in a subfolder, each called NewRepo, Entity, Controller, etc...   
+
+I implemented the getCompanyDetails API into the AppleInfo page.  
+I attempted to integrate the StockData API as well, but still am getting errors.
+
+I also edited the Information.cshtml page to add in search functionality for users to search by company name.
+
+
 # Assignment4_MIST353
 
 ## Six Pages
