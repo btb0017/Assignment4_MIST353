@@ -24,7 +24,7 @@ namespace EcoInvestAPI.Repositories
             var date1 = new SqlParameter("@StartDate", startDate);
             var date2 = new SqlParameter("@EndDate", endDate);
 
-            var viewCompanyClimateData = await _dbContextClass.companyClimateandStock
+            var viewCompanyClimateData = await _dbContextClass.CompanyClimateandStock
                 .FromSqlRaw("EXEC spViewCompanyDataByDateRange @CompanyID, @StartDate, @EndDate", param, date1, date2)
                 .ToListAsync();
 

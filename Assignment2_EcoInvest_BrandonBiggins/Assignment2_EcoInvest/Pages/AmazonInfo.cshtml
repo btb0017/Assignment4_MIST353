@@ -1,0 +1,57 @@
+﻿@page
+@model Assignment2_EcoInvest.Pages.AmazonInfoModel
+@{
+    var companyId = HttpContext.Request.Query["companyId"];
+    var startDate = HttpContext.Request.Query["startDate"];
+    var endDate = HttpContext.Request.Query["endDate"];
+    //BraylonHigginbotham
+}
+
+<script src="~/js/site.js" type="module"></script>
+<script type="module">getCompanyDetails(@companyId)</script>
+<script type="module">fetchStockData()</script>
+
+
+<div id="companyHeader" class="text-align:center;">
+    <img id="companyLogo" class="text-align:center;" src="~/Images/Amazon/Amazon-logo.jpg" alt="Company Logo">
+    <img id="companyHQPicture" src="~/Images/Amazon/Amazon-HQ.jpg" alt="Company Headquarters">
+</div>
+
+<h2 style="text-align:center;" id="companyName"></h2>
+
+<div id="companyDetails" style="margin: 20px;">
+    <p><strong>Address:</strong> <span id="companyAddress"></span></p>
+    <p><strong>Email:</strong> <span id="companyEmail"></span></p>
+    <p><strong>Website:</strong> <a id="companyWebsite" href=""></a></p>
+    <p><strong>Climate Rating:</strong> <span id="companyClimateRating"></span></p>
+</div>
+<div id="companyId"></div>
+<div id="stockDataForm">
+    <label for="startDate">Start Date:</label>
+    <input type="date" id="startDate" name="startDate">
+
+    <label for="endDate">End Date:</label>
+    <input type="date" id="endDate" name="endDate">
+
+    <button type="button" onclick="fetchStockData()">Get Stock Data</button>
+</div>
+
+<table id="stockDataTable" style="width:100%;">
+    <thead>
+        <tr>
+            <th>Company Name</th>
+            <th>Date</th>
+            <th>Opening Price</th>
+            <th>Closing Price</th>
+            <th>High</th>
+            <th>Low</th>
+            <th>Volume</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Stock data will be inserted here -->
+    </tbody>
+</table>
+
+
+<div><p><a href="/Information">Go Back</a></p></div>

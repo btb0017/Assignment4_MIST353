@@ -2,6 +2,27 @@ html {
   font-size: 14px;
 }
 
+#companyHeader {
+    position: relative;
+    width: 100%;
+    height: 150px; /* Set a fixed height for the header */
+    overflow: hidden;
+}
+
+#companyHQPicture {
+    width: 100%;
+    height: 150px; /* Constrain the height of the image */
+    object-fit: cover; /* Ensure the image covers the area nicely */
+}
+
+#companyLogo {
+    position: absolute;
+    top: 10px; /* Adjust positioning as needed */
+    left: 20px;
+    width: 100px; /* Adjust size as necessary */
+    height: auto;
+}
+
 @media (min-width: 768px) {
   html {
     font-size: 16px;
