@@ -19,7 +19,7 @@ namespace EcoInvestAPI.Controllers.NewControllers
 
         // GET: api/StockData/5?startDate=2024-01-01&endDate=2024-01-31
         [HttpGet("{companyId}")]
-        public async Task<IActionResult> GetStockDataByDateRange([FromRoute] int companyId, [FromQuery] DateTime startDate, [FromQuery] DateTime endDate)
+        public async Task<IActionResult> GetStockDataByDateRange([FromQuery] int companyId, [FromQuery] DateTime startDate, [FromQuery] DateTime endDate)
         {
             if (!ModelState.IsValid)
             {

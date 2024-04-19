@@ -8,76 +8,44 @@
 
 async function getCompanyDetails(companyId) {
     try {
-        console.log('Fetching details for companyID: ${companyId}');
         const response = await fetch(`https://localhost:7233/api/Company/${companyId}`);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
-
         const data = await response.json();
 
-        // Assuming data[0] contains the correct company information
-        document.getElementById('companyName').innerHTML = data[0].companyName;
-
-        document.getElementById('companyAddress').innerHTML = `${data[0].companyStreet}, ${data[0].companyCity}, ${data[0].companyState}, ${data[0].companyCountry}, ${data[0].companyZip}`;
-
-        document.getElementById('companyEmail').innerHTML = data[0].companyEmail;
-
-        const websiteElement = document.getElementById('companyWebsite');
-        websiteElement.href = data[0].companyWebsite;
-        websiteElement.innerHTML = data[0].companyWebsite;
-
-        document.getElementById('companyClimateRating').innerHTML = data[0].companyClimateRating;
+        if (data.length > 0) {
+            const companyInfo = data[0];
+            document.getElementById('companyName').textContent = companyInfo.companyName;
+            document.getElementById('companyAddress').textContent = `${companyInfo.companyStreet}, ${companyInfo.companyCity}, ${companyInfo.companyState}, ${companyInfo.companyCountry}, ${companyInfo.companyZip}`;
+            document.getElementById('companyEmail').textContent = companyInfo.companyEmail;
+            const websiteElement = document.getElementById('companyWebsite');
+            websiteElement.href = companyInfo.companyWebsite;
+            websiteElement.textContent = companyInfo.companyWebsite;
+            document.getElementById('companyClimateRating').textContent = companyInfo.companyClimateRating;
+        }
     } catch (error) {
         console.error('Fetch error:', error);
+        alert('Failed to load company details.');
     }
 }
 
-async function fetchStockData() {
-    const companyId = document.getElementById('companyId').innerHTML;
-    const startDate = document.getElementById('startDate').value;
-    const endDate = document.getElementById('endDate').value;
+async function fetchStockData(companyId, startDate, endDate) {
 
-    if (!startDate || !endDate) {
-        alert('Please enter both start and end dates.');
+    if (!companyIdElement || !startDate || !endDate) {
+        //alert('Please enter all required fields correctly.');
         return;
     }
 
-    try {
-        const response = await fetch(`https://localhost:7233/api/StockData/${companyId}?startDate=${startDate}&endDate=${endDate}`);
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const stockData = await response.json();
-
-        let innerHtml = `<h3>Stock Data</h3><table class="table" style="width:100%;">
-                             <tr>
-                               <th>Company Name</th>
-                               <th>Date</th>
-                               <th>Opening Price</th>
-                               <th>Closing Price</th>
-                               <th>High</th>
-                               <th>Low</th>
-                               <th>Volume</th>
-                             </tr>`;
-
-        for (let i = 0; i < stockData.length; i++) {
-            innerHtml += `<tr>
-                            <td>${stockData[i].companyName}</td>
-                            <td>${stockData[i].dateValue.split('T')[0]}</td>
-                            <td>${stockData[i].openingPrice}</td>
-                            <td>${stockData[i].closingPrice}</td>
-                            <td>${stockData[i].high}</td>
-                            <td>${stockData[i].low}</td>
-                            <td>${stockData[i].volume}</td>
-                          </tr>`;
-        }
-        innerHtml += "</table>";
-        const tableElement = document.getElementById('stockDataTable');
-        tableElement.innerHTML = innerHtml;
-        tableElement.style.display = 'block'; // Change from 'none' to make visible
-    } catch (error) {
-        console.error('Fetch error:', error);
-        alert('Failed to fetch stock data.');
+    const companyIdElement = companyIdElement.textContent;
+    const response = await fetch(`https://localhost:7233/api/StockData/${companyId}?startDate=${startDate}&endDate=${endDate}`);
+    const stockData = await response.json();
+    let innerHtml = '<h3>Stock Data</h3><table class="table"><tr><th>Company Name</th><th>Date</th><th>Opening Price</th><th>Closing Price</th><th>High</th><th>Low</th><th>Volume</th></tr>';
+    for (let i = 0; i < stockData.length; i++) {
+        innerHtml += `<tr><td>${stockData[i].companyName}</td><td>${stockData[i].dateValue.split('T')[0]}</td><td>${stockData[i].openingPrice}</td><td>${stockData[i].closingPrice}</td><td>${stockData[i].high}</td><td>${stockData[i].low}</td><td>${stockData[i].volume}</td></tr>`;
     }
+    innerHtml += "</table>";
+    document.getElementById('stockDataTable').innerHTML = innerHtml;
+    document.getElementById('stockDataTable').style.display = 'block';
 }
+
